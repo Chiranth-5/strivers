@@ -19,4 +19,13 @@ class BinarySearch1D
         int searchInsert(vector<int> A, int x) ;
         int findFloor(vector<int> A, int target);
         int findCeil(vector<int> A, int target);
+
+        int solveFirstOccurance(vector<int>& A,int n, int target);
+        int solveLastOccurance(vector<int>& A,int n, int target);
+
+        vector<int> firstAndLastPosition(vector<int>& A,int n, int target);
+        int countOfOccurence( vector<int>& arr, int n, int x);
+
+
+        int bSRotatedArray(vector<int>& nums, int target);
 };
