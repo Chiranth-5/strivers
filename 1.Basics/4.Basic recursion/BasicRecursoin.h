@@ -7,6 +7,9 @@ class BasicRecursion
         
 
     public:
+
+        //revision ( start decending order):
+        
         
         
         string ansRev="";
@@ -25,18 +28,18 @@ class BasicRecursion
         void NToOneBackward( int count, int n);
 
         // sum of firsnt n numbers using forward redursion
-        int sumOffirstNNumbers(int count , int n);
-
+        int sumOffirstNNumbers(int n);
 
         // Factorial of a given number
-        int factorialOfGivenNumber( int count, int n);
+        int factorialOfGivenNumber( int n);
+
 
         //reverse an array
         bool revAnArray( int count , int n , string rev);
 
 
         // Fibonacci Number
-        int fibonacciNumber( int count , int n);
+        int fibonacciNumber( int count,int n);
 
         // Fibonacci Number-2
         int fibonacciNumber2(int n);

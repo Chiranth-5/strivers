@@ -26,18 +26,18 @@ int main()
     // obj.printDivisors(24);
     // cout << endl;
 
-    // cout << "6.Is the number 8 prime ";
-    // bool primeNumber = obj.primeNumber(8);
-    // cout << primeNumber << endl;
+    cout << "6.Is the number 8 prime ";
+    bool primeNumber = obj.primeNumber(8);
+    cout << primeNumber << endl;
 
-    // cout << "6.Is the number 7 prime ";
-    // primeNumber = obj.primeNumber(7);
-    // cout << primeNumber << endl;
+    cout << "6.Is the number 7 prime ";
+    primeNumber = obj.primeNumber(7);
+    cout << primeNumber << endl;
 
 
-    cout << "7.Hcf of the number ";
-    int hcf = obj.highestCommonFactor(5, 15);
-    cout << hcf << endl;
+    // cout << "7.Hcf of the number ";
+    // int hcf = obj.highestCommonFactor(5, 15);
+    // cout << hcf << endl;
 
 
 

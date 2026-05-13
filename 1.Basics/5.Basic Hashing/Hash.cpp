@@ -163,31 +163,36 @@ void Hash::maxAndMinFrequency( vector<int> A)
     // will store values in hashMap frequency map.
     // access the above has map to find the least and the max.
 
-    map<int,int> mp;
+    
+    // key : value
 
-    int max = 0;
-    int min = 100;
-    int maxFrequecyValue = 1;
-    int minFrequecyValue = 1;
+    // 10 : its frequecy count;
 
-    for ( int num : A)
+    map<int,int> freqMP;
+
+    // loop thru A and store there it in map as its key :frequncy
+    for( int num : A)
     {
-        mp[num]++;
+        freqMP[num]++;
     }
 
-    // for( std::map<int,int>::iterator it = mp.begin(); it!= mp.end(); it++)
-    // {
+    // access this map and check if the freq is max  or min.
 
-    // }
-    for ( auto it: mp)
+    int max= INT_MIN;
+    int min= INT_MAX;
+
+
+    int maxFrequecyValue = -1;
+    int minFrequecyValue = -1;
+
+
+
+    for ( auto it: freqMP)
     {
 
-
         //it -> 2 , 1
-
         if(it.second >= max)
         {
-
             max = it.second;
             maxFrequecyValue = it.first;
         }

@@ -26,8 +26,8 @@ int main()
     // obj.pattern7MyUnderstanding(3);
     // cout << endl;
 
-    obj.pattern7(3);
-    cout << endl;
+    // obj.pattern7(3);
+    // cout << endl;
 
     // obj.pattern8(3);
     // cout << endl;
@@ -68,11 +68,11 @@ int main()
     // obj.pattern20(3);
     // cout << endl;
 
-    // obj.pattern21(3);
+    // obj.pattern21(5);
     // cout << endl;
 
-    // obj.pattern22(3);
-    // cout << endl;
+    obj.pattern22(3);
+    cout << endl;
 
 
 }

@@ -600,25 +600,21 @@ void Patterns::pattern18( int n)
 
     string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+
+
+    // number of lines
     for ( int i=1; i<=n; i++)
     {
-        //Inner loop prints 
-        // i, charchter, number of charachter.
-        // 1, C   (2)     , 1
-        // 2, B C   (1)   , 2
-        // 3, A B C   (0) , 3
+        //staring letter for each line
+        int letterStart = n-i;
 
-        int start = n-i;
-        
-        for ( int j=1; j<=i; j++)
-        {  
-            // each line.
-            
-            cout << s[start] << " ";
-            start++;
+        // each print in the line
+        for (int j=1; j<=i ; j++)
+        {
+            cout << s[letterStart] << " ";
+            letterStart++;
         }
-
-        //end of line
+        //endline
         cout << endl;
     }
 
@@ -711,26 +707,25 @@ void Patterns::pattern20( int n)
         // the number of stars decreases by 1 and number of space increases by 2.
 
 
-        //star
-        for ( int j=1; j<= star ; j++)
+        // star
+        for ( int j =1; j<=star; j++)
         {
             cout << "* ";
         }
 
-        //space
-        for ( int j=1; j<= space ; j++)
+        //space 
+        for ( int j =1; j<=space; j++)
         {
-            cout << "  ";
+            cout << "  "; 
         }
 
-        //star
-        for ( int j=1; j<= star ; j++)
+        // star
+        for ( int j =1; j<=star; j++)
         {
             cout << "* ";
         }
 
-        //at line 3 ( ie n) we need to decrese the star and increase the space by 2.
-        if ( i < n)
+        if( i<n)
         {
             star++;
             space = space -2;
@@ -741,9 +736,9 @@ void Patterns::pattern20( int n)
             space = space +2;
         }
 
-
-        //end of line
         cout << endl;
+
+
     }
 }
 
@@ -760,44 +755,32 @@ void Patterns::pattern21( int n)
 
     for( int i=1; i<=n; i++)
     {
-
-        //inner lOOP prints values in each loop
-
-        // i , star, space , star
-        // 1 , 
-        // 2 , 1, 2, 1
-        // 3 , 1, 2, 1
-        // 4 , 
-
-
-        //i==1 or n then print n stars
-        if ( i==1 || i==n)
+        if( i == 1 || i == n)
         {
-            //print n number of stars;
-            for ( int j=1; j<=n; j++)
+            // print n stars
+            for ( int j=1 ; i<=n ; j++)
             {
-                cout << "* ";
+                cout << "* " ;
             }
-            //endline
-            cout << endl;
-            continue;
+        }
+        else
+        {
+            // print star
+            cout << "* ";
+
+            // print space
+            int space = n-2;
+            for( int j =1; j<= space ; j++)
+            {
+                cout << "  "; 
+            }
+
+            // print star
+            cout << "* " <<endl;
 
         }
 
-       // star
-       cout << "* ";
-
-       //space
-       for ( int j=1; j<=n-2; j++)
-       {
-            cout << "  ";
-       }
-
-       // star
-       cout << "* ";
-
-       //endline
-       cout << endl;
+        cout <<endl;
 
 
     }
@@ -808,112 +791,107 @@ void Patterns::pattern22( int n)
 {
 
 
-    // // 4       4 4 4 4 4    4 
-    // // 4 3       3 3 3    3 4
-    // // 4 3 2       2    2 3 4
-    // // 4 3 2 1          2 3 4
-    // // 4 3 2 2 2 3 4
-    // // 4 3 3 3 3 3 4
-    // // 4 4 4 4 4 4 4 
+    // 4       4 4 4 4 4    4 
+    // 4 3       3 3 3    3 4
+    // 4 3 2       2    2 3 4
+    // 4 3 2 1          2 3 4
+    // 4 3 2 2 2 3 4
+    // 4 3 3 3 3 3 4
+    // 4 4 4 4 4 4 4 
 
 
-    // // 4           4
-    // // 4 3       3 4
-    // // 4 3 2   2 3 4
+    // 4           4
+    // 4 3       3 4
+    // 4 3 2   2 3 4
 
-    // // 4 3 2 1 2 3 4
+    // 4 3 2 1 2 3 4
 
-    // // 4 3 2
-    // // 4 3
-    // // 4
+    // 4 3 2
+    // 4 3
+    // 4
 
 
+    // starr
+    int star = 1; //+1
 
-    // outer loop runs nuns 2n-1 timess
+    // space 
+    int space = 2*(n-1) - 1; // -2
 
-    int number = 1; //i=2, i=4, ,i=5., n=4
-    int space = 2*n-3; // 5
-    for( int i=1; i<= 2*n -1; i++) // i = [1,7]
+    
+
+    for( int i=1; i<=(2*n)-1; i++)
     {
-        // 4 3 2 1 2 3 4
-        if ( i==n)
-        {   
 
-            int value = n; //value = 4
-            for ( int j=1; j<=n; j++) // 4 times
+        if( i == n)
+        {
+            // 4321 234
+            for ( int j=1; j<= n; j++)
             {
-                cout << value << " "; //4 3 2 1
-                value--; //0
-            }
-            value = 2; 
-            for ( int j=1; j<=n-1; j++) // 3 times
-            {
-                cout << value << " "; //2 3 4
-                value++; //5
+                cout << n-j+1 << " ";
             }
 
-            number--; //number =2
-            space = space+2; //space = 3
-            
+            // 4321 234
+            for ( int j=1; j<= n-1; j++)
+            {
+                cout << j+1 << " ";
+            }
+
+            //fliped start increasing the value
+            star--;
+            space = space+2;
+
             cout << endl;
-
         }
+
         else
         {
-            //first half
-            // 4           4
-            // 4 3       3 4
-            // 4 3 2   2 3 4
-
-
-            int valueBegin = n; //4
-            // print number
-            for ( int j=1; j<=number; j++) //number =3
+            int valueBegin =n;
+            for ( int j=1; j<=star; j++)
             {
-                cout << valueBegin << " "; //4 3 2 
-                valueBegin--;//1
+                
+                cout << valueBegin << " ";
+                valueBegin--;
             }
 
-            int valueSpace = n-number+1;
-            // print space
-            for ( int j=1; j<=space; j++) //space =1
+            valueBegin = n-star+1;
+            for ( int j=1 ; j<=space ; j++)
             {
-                cout << valueSpace<< " "; //2
+                cout << valueBegin << " ";
             }
 
+            valueBegin = n-star+1;
+            for ( int j=1; j<=star; j++)
+            {
+                // number printed  ascending
+                cout << valueBegin << " ";
+                valueBegin++;
+            }
 
-            // print number
-            int valueEnd = n-number+1; //
             
-            for ( int j=1; j<=number; j++) //numner =3
-            {
-                cout << valueEnd << " "; //3 4 
-                valueEnd++;
-            }
 
-            // // 4 3 2   2 3 4
-            // // 4 3       3 4
-            // // 4           4 
-
-            if( i < n)
+            if( i<n)
             {
-                number++; //number =3
-                space = space-2;// space =1
+                star++;
+                space = space -2;
             }
             else
             {
-                number--; //number =2
-                space = space +2; //space = 3
+                star--;
+                space = space+2;
             }
 
-            // endl line
-            cout << endl;
-
-
+            cout <<endl;
         }
+        
+        
+        
+    
+
+    }
+    
 
         
-    }
+    
     
 
 }

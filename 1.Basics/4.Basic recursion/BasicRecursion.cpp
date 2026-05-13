@@ -29,23 +29,20 @@ void BasicRecursion::recursionPrintName( string name , int count , int n) // dya
  void BasicRecursion::oneToNForward(int count, int n)
  {
     
-    // count = 0
-    // n = 2
+   //base case
+   if( count ==n)
+   {
+    return;
+   }
 
-    // n numbers printed . n=2
-    // 1 2
-    // recursion will be called 2 times
+   // forward
+   count++;
+   cout << count << endl;
+   
+   oneToNForward(count ,n);
 
-    //base case
-    if( count == n) 
-    {
-        return;
-    }
-    
-    // count keeps track of loop
-    count++;
-    cout << count << " ";
-    oneToNForward(count, n);// 1. print later ( 1, 2) , 2. print later (2,2), 3. checkes later returns.
+   //backward 
+   //nothing in this case
 
  }
 
@@ -156,33 +153,24 @@ void BasicRecursion::NToOneBackward(int count , int n)
 
  int sum = 0;
 
- int BasicRecursion::sumOffirstNNumbers(int count ,int n)
+ int BasicRecursion::sumOffirstNNumbers(int n)
  {  
-    // count = current function call number
-    // n = total number of calls.
 
-    // count = 0
-    // n = 2
-
-    // return 1+2 = 3.
-
-    //  base_case
-    if( count == n)
+    // base case
+    if( n <= 0)
     {
-        return 0;;
+        return 0;
     }
 
-    count ++; // next function call number.
 
-    int sum=0;
-    sum = count+ sumOffirstNNumbers(count,n);
-    
-    return sum;
+    // backward will return n + answer
+    return n + sumOffirstNNumbers(n-1);
+
  }
 
 
 // Factorial of a given number
-int BasicRecursion::factorialOfGivenNumber( int count, int n)
+int BasicRecursion::factorialOfGivenNumber( int n)
 {
     // count = current function call number
     // n = total number of calls.
@@ -191,49 +179,38 @@ int BasicRecursion::factorialOfGivenNumber( int count, int n)
     // 2 * 1 
 
     // base case
-    if( count == n)
+    if( n <= 1)
     {
         return 1;
     }
 
-    count++; // current function call number.
-
     
-    int factorial =  count * factorialOfGivenNumber( count , n);
+    return n * factorialOfGivenNumber( n-1);
 
-    // factorial =  count * factorial;
-    return factorial;
     
 
 }
 
 
  //reverse an array
-bool BasicRecursion::revAnArray( int count , int n , string rev)
+bool BasicRecursion::revAnArray( int first , int last , string rev)
 {
-    // count = current function call
-    // n = total number of calls
 
-    // rev= abc. given 012
-    // rev= cba. need 210 ,i can map this to revese of count value.ie count -1
 
     // base case
-    if ( count > n)
+    if( first >=last)
     {
+        // everything is checked
         return true;
     }
 
 
-    count ++; //current call
-
-
-    //compare
-    if( rev[count+1] == rev[n-count])
+    if( rev[first] == rev[last])
     {
-        revAnArray(count, n, rev);
-        return true;
+        // check next letters
+        return revAnArray( first+1, last-1, rev);
     }
-    else 
+    else
     {
         return false;
     }

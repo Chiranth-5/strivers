@@ -137,27 +137,27 @@ bool Math::primeNumber( int n)
     // prime numbers are all the numbers that are divisiable by 1 and n
     // divisor is are just 1 and n.
 
-    int count =0;
-    for( int i=1; i*i <=n ; i++) // check till root of n 
+    int count=0;
+    for(int i=1; i*i <= n; i++)
     {
-       
-        //check the divisors
-        if( n%i == 0)
+        if( n%i ==0)
         {
-            //only 1 or n should be allowed or else its not prime.
-            // runs only one as we are checking till root of n.
-            count++;
+            count ++;
         }
     }
-    if( count >1) return false;
 
-    return true;
+    if( count ==1)
+    {
+        return true;
+    }
+    return false;
 
 }
 
 //7. GCD of two numbers
 int Math::highestCommonFactor( int n, int m)
 {
+
 
 
 
@@ -170,6 +170,7 @@ int Math::highestCommonFactor( int n, int m)
     // n = 1, 2, 4, 7, 14, 28
     // m = 1, 2, 4, 11, 22, 44
     // highest common factor is 4
+
 
     // n=5, m=16
     // n = 1, 5
