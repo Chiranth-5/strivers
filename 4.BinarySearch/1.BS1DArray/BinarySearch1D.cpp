@@ -406,8 +406,61 @@ int BinarySearch1D::bSRotatedArray(vector<int>& nums, int target)
 
 }
 
+bool BinarySearch1D::searchInARotatedSortedArrayII(vector<int>& arr, int k)
+{
+    // Example 1:
+    // Input Format: arr = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 3
+    // Result: True
+    // Explanation: The element 3 is present in the array. So, the answer is True.
+
+    // find sorted side.
+    // . if element is in the sortedd side then elimante the unsorted side  or vice versa
 
 
+}
+
+int BinarySearch1D::findMin(vector<int>& nums)
+{
+    // Input: arr = [4,5,6,7,0,1,2,3]
+    // Output: 0
+    // Explanation: The minimum element in the array is 0.
+    // Input : arr = [3,4,5,1,2]
+    // Output: 1
+    // Explanation : The minimum element in the array is 1.
+
+    // initialise mim as INT_MAX
+    // find the sorted side
+    // store its value if its less than min and elimnate this side
+    
+}
+
+int BinarySearch1D::findRotations(vector<int>& arr)
+{
+    // find the min value.
+    // return the index of the minimum value.
+}
+
+int BinarySearch1D::singleNonDuplicate(vector<int>& arr)
+{
+    // Input : arr[] = {1,1,2,2,3,3,4,5,5,6,6}
+    // Output: 4
+    // Explanation: Only the number 4 appears once in the array.
+
+    // Input: arr[] = {1,1,3,5,5}
+    // Output : 3
+    // Explanation: Only the number 3 appears once in the array.
+
+    //1. xor logic
+    //2. map the index to the values.
+    // ie odd left shd be same value =>means the number is on the right 
+    //.   even right shd be same value => means the number is on the left
+
+}
+
+int BinarySearch1D::findPeakElement(vector<int>& nums)
+{
+    // based on the values of of low mid and high elminate one side
+}
 
 
 

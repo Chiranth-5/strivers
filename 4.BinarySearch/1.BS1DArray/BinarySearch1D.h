@@ -28,4 +28,13 @@ class BinarySearch1D
 
 
         int bSRotatedArray(vector<int>& nums, int target);
+
+
+        bool searchInARotatedSortedArrayII(vector<int>& arr, int k);
+        int findMin(vector<int>& nums);
+        int findRotations(vector<int>& arr);
+        int singleNonDuplicate(vector<int>& arr);
+
+        int findPeakElement(vector<int>& nums);
+
 };

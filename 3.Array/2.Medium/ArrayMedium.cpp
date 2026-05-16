@@ -367,7 +367,7 @@ vector<int> ArrayMedium::nextPermutation(vector<int>& A)
             break;
         }
     }
-    //3. find the value which is greateer than breakL from all the values from the right. And swap it
+    //3. find the value which is greater than breakL from all the values from the right. And swap it
     // 2 1 5 4 3 0 0
     //   bL
 
@@ -388,6 +388,7 @@ vector<int> ArrayMedium::nextPermutation(vector<int>& A)
     //4. now all the values from breakL till end must be sorted.
     // As we know its in descending orderl Just reverse it
 
+    //2 3 0 0 1 4 5  
     reverse(A.begin()+breakL+1, A.end());
 
     return A;

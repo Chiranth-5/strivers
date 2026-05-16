@@ -28,26 +28,26 @@ void Sort::selectionSort(vector<int> A)
     // 2 arrays.
     // select the minimum_index value for that position.
     // swap at once.
+    int n= A.size();
 
-    for ( int i=0; i<A.size(); i++)
+    for (int i=0; i<n; i++)
     {
+        //for each position select the least from the remaning
+        //if ita already mininmu then dont change
+        int min = i;
 
-        int mini_index = i ;
 
-        // This loop  finds the minimum index
-        for ( int j=i+1; j< A.size(); j++)
+        for ( int j = i+1; j<n; j++)
         {
-
-            if(  A[j] <A[mini_index])
+            // check if its less than the current value 
+            if( A[j] < A[i])
             {
-                mini_index =j;
+                min = j;
             }
         }
 
-        // swap the value 
-        int temp = A[mini_index];
-        A[mini_index] = A[i];
-        A[i] = temp;
+        swap( A[i], A[min]);
+
 
     }
 
@@ -97,10 +97,11 @@ void Sort::bubbleSort( vector<int> A)
 void Sort::insertionSort(vector<int> A)
 {
     // 2 arrays
+    // sorted array
+    // value
     
-    // insert the value to its correct psostion.
+    // insert the value to its correct postion in sorted arrray.
 
-    // loop goes thru each element that needs to be inserted.
     for( int i=0; i<A.size(); i++)
     {
 
@@ -127,6 +128,13 @@ void Sort::insertionSort(vector<int> A)
 
 void Sort::merge(vector<int>& A, int start, int mid, int secondStart, int end)
 {
+    // 1 2 3 4 5 6 7 8
+    // 0 1 2 3 4 5 6 7
+    // s     m ss    e
+
+    // comparing the values from the left  array and right array merge it together
+
+
     vector<int> B(A.size());
     int i = start;       // Pointer for left half
     int j = secondStart; // Pointer for right half
@@ -183,7 +191,6 @@ void Sort::mergeSort( vector<int>& A, int start, int end)
         merge( A, start, mid, mid+1, end);
     }
 
-
 }
 
 
@@ -211,7 +218,7 @@ void Sort::recursiveInsertionSort(vector<int>A, int numberOfremaningCalls)
         return; 
     }
 
-    // write inner loop lofic here.
+    // write inner loop logic here.
 
     numberOfremaningCalls--;
 
@@ -222,13 +229,20 @@ int Sort::partitioning(vector<int>& A, int low, int high)
 {
 
     // pivot element must be placed in correct postion.
-    // we can consider any value as pivot but will consider first value as pivot.
+    // we can consider any value as pivot .Here we will consider first value as pivot.
+    int pivot = A[low];
 
     // while finding the pivot postion swap values greater than pivot in the left with values less than the pivot on the right.
 
     // 4 3 5 2 6 8 1
     // 0 1 2 3 4 5 6
     // i           j
+
+
+
+    // compare pivot with left and right and stop at the index when the condition is false
+    
+
 
     int pivot = A[low];
     int i=low;
@@ -274,7 +288,7 @@ void Sort::quickSort(vector<int>& A, int low, int high)
     // more than 1 element then it needs to be sorted on both the side
     if(low<high)
     {
-        // need to find the partition paosition. after placing the low value at the partition position.
+        // need to find the partition position. after placing the low value at the partition position.
         int partition = partitioning( A, low, high);
 
         // sort the left side of the partition and the right side of the partition

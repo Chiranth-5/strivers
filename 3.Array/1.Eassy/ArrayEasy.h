@@ -5,6 +5,10 @@ using namespace std;
 class ArrayEasy
 {
     public:
+
+        // revision:
+        // revese order.
+
         void display( vector<int>A);
         void swap( int& a, int& b);
         void reverseInPlace(vector<int>& A, int i, int j);

@@ -613,6 +613,56 @@ int ArrayEasy::longestSubarray(vector<int>& A, int requiredSum)
     // return maxCount;
 
     // method 3
+
+    int n = A.size();
+    int sum = 0;
+    unordered_map<int,int> prefixSum; // prefix sum and index
+
+    for (int i =0 ; i<n; i++)
+    {
+        sum =+ A[i];
+
+        int rem = sum -requiredSum;
+
+        // check if rem is value is found in the prefix sum else add it
+
+        int maxl = INT_MIN;
+
+        if( prefixSum.find(rem) != prefixSum.end())
+        {
+            // found
+
+            // calculate length
+
+            int length = i- prefixSum[sum];
+            maxl = max(length , maxl);
+
+        }
+        else
+        {
+            // add it
+            prefixSum[sum]=i;
+        }
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 1. while traversing keep calclauting the sum till there.
     // 2. check if its same as the sum and 
 
