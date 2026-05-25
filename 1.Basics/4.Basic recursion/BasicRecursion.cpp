@@ -151,7 +151,7 @@ void BasicRecursion::NToOneBackward(int count , int n)
 
  }
 
- int sum = 0;
+ int sum=0;
 
  int BasicRecursion::sumOffirstNNumbers(int n)
  {  
