@@ -7,6 +7,12 @@ class BinarySearch1D
 {
     
     public:
+            //revision stratergy:
+            //  1.lower bound
+            //  2.upper bound
+            //  3. bSRotatedArray 
+            //  4.findRotations(vector<int>& arr);
+            //  5.singleNonDuplicate(vector<int>& arr);
 
         void display( vector<int>A);
 
