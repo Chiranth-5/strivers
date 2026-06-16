@@ -1,90 +1,72 @@
-
 #include "Heap.h"
+#include <iostream>  // Added for std::cout
 
 void Heap::initializeHeap()
 {
-    A.push_back(-1);
+    A.clear(); // Ensure it's empty before initializing
+    A.push_back(-1); // Dummy value for 1-indexing
 }
 
 void Heap::insert(int key)
 {
     A.push_back(key);
 
-    // now arrage the vector tofollow heap rules
-
-    int n = A.size();
-
-    int temp = A[n-1];
-    int i = A.size()-1;
-    while( i>0 &&  temp < A[i/2])
+    int i = A.size() - 1;
+    int temp = A[i];
+    
+    //  i > 1 to prevent comparing against the dummy element at index 0
+    while (i > 1 && temp < A[i / 2])
     {
-        // parent is smaller than child
-
-        // move parent to child place
-        A[i] = A[i/2];
-        i = i/2;
+        A[i] = A[i / 2]; // Move parent down
+        i = i / 2;       // Move index up
     }
     
     A[i] = temp;
-
 }
 
-// Helper function to restore the heap property downwards
-void Heap::heapifyDown(size_t index) 
+void Heap::heapifyDown(int index) 
 {
-    size_t size = A.size() - 1; // Effective size of the 1-indexed heap
-    size_t smallest = index;
-    size_t left = 2 * index;
-    size_t right = 2 * index + 1;
+    int size = A.size() - 1; 
+    int smallest = index;
+    int left = 2 * index;
+    int right = 2 * index + 1;
 
-    // Check if left child exists and is smaller than the current smallest
     if (left <= size && A[left] < A[smallest]) 
     {
         smallest = left;
     }
 
-    // Check if right child exists and is smaller than the current smallest
     if (right <= size && A[right] < A[smallest]) 
     {
         smallest = right;
     }
 
-    // If the smallest is not the current node, swap and recurse
     if (smallest != index) 
     {
         std::swap(A[index], A[smallest]);
-        heapifyDown(smallest);
+        heapifyDown(smallest); // Recursive call
     }
 }
 
 void Heap::extractMin()
 {
-    // remove the min value from the top 
-    if ( A.size() <=1)
+    // Case 1: Heap is empty (only contains dummy element)
+    if (A.size() <= 1)
     {
-        cout << "No minimum value" <<endl;
+        std::cout << "No minimum value" << std::endl;
         return;
     }
 
-    if(A.size() <=2 )
+    // Case 2: Heap has exactly one valid element
+    if (A.size() == 2)
     {
         A.pop_back();
         return;
     }
 
-    
-    A[1] = A[A.size()-1];
-    A.pop_back();
+    // Case 3: Heap has multiple elements
+    A[1] = A[A.size() - 1]; // Move last element to root
+    A.pop_back();           // Remove last element
 
-
-
-    // 3. Restore the heap property by pushing the new root down
-    if (A.size() > 1) 
-    {
-        heapifyDown(1);
-    }
-
-
-
-
+    heapifyDown(1);         // Restabilize from the root down
 }

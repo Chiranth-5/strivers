@@ -24,5 +24,5 @@ class Heap
         int heapSize();
 
 
-        void heapifyDown(size_t index);
+        void heapifyDown(int index);
 };
