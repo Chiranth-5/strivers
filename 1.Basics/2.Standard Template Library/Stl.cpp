@@ -171,6 +171,40 @@ void Stl::Queuue()
 
 void Stl::priorityQueue()
 {
+    //priority_queue<T, c, comp> pq;
+    
+    // T = Datatype of the priority Queue
+    // c = underliny container ie vector.
+    // comp = comparator function to define the pririty order.
+
+    //By default it creates max heap using vector container
+
+    priority_queue<int> pq; // max-heap ( int type and vecor container)
+
+    priority_queue<int, vector<int>, greater<int> > pqmin;
+
+    vector<int> vec  = {10,20,30,50,40};
+    // Pass the iterators to initialize it as a max-heap priority queue
+    // O(n)
+    std::priority_queue<int> pqHeapify(vec.begin(), vec.end());
+
+    // O(log(n))
+    pq.push(10);
+    pq.push(11);
+    pq.push(8);
+
+    // O(log(n));
+    pq.pop();
+
+    // O(1);
+    pq.top();
+
+    pq.size();
+
+    // to traverse do it in reverse order.
+
+
+    
 
 }
 
