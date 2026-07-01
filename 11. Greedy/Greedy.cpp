@@ -68,4 +68,46 @@ pair < int, int > Greedy::JobScheduling(vector<Job> list, int n)
     
 }
 
+struct MeetingDetails
+{
+    public :
+        int id;
+        int start;
+        int end;
 
+};
+
+vector<int> Greedy::NMeetingInARoom ( vector<int> start, vector<int> end)
+{
+    int n = start.size();
+    std::vector<MeetingDetails> meetings;
+
+    // 1. Pair up the start times, end times, and their original 1-based position
+    for (int i = 0; i < n; i++) 
+    {
+        meetings.push_back({i + 1, start[i], end[i]});
+    }
+
+    // 2. Sort the meetings based on their END TIME in ascending order.
+    // If end times are identical, we sort by their original position (optional but standard)
+    std::sort(meetings.begin(), meetings.end(), [](const MeetingDetails& a, const MeetingDetails& b) {
+        if (a.end == b.end) {
+            return a.id < b.id;
+        }
+        return a.end < b.end;
+    });
+
+    std::vector<int> result;
+    int lastEndTime = -1; // Tracks when the room becomes free
+
+    // 3. Iterate through the sorted meetings greedily
+    for (int i = 0; i < n; i++) {
+        // If the current meeting starts AFTER the previously scheduled meeting finishes
+        if (meetings[i].start > lastEndTime) {
+            result.push_back(meetings[i].id); // Schedule this meeting
+            lastEndTime = meetings[i].end;    // Update when the room is free again
+        }
+    }
+
+    return result;
+}

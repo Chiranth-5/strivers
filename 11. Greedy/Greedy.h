@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 
 struct Job
@@ -25,6 +26,8 @@ class Greedy
     
     // 6.job sequence
         pair < int, int > JobScheduling(vector<Job> list, int n);
+
+        vector<int> NMeetingInARoom ( vector<int> start, vector<int> end);
     
 
 };
