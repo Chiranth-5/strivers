@@ -101,9 +101,11 @@ vector<int> Greedy::NMeetingInARoom ( vector<int> start, vector<int> end)
     int lastEndTime = -1; // Tracks when the room becomes free
 
     // 3. Iterate through the sorted meetings greedily
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         // If the current meeting starts AFTER the previously scheduled meeting finishes
-        if (meetings[i].start > lastEndTime) {
+        if (meetings[i].start > lastEndTime) 
+        {
             result.push_back(meetings[i].id); // Schedule this meeting
             lastEndTime = meetings[i].end;    // Update when the room is free again
         }
