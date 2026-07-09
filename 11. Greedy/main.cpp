@@ -19,16 +19,23 @@ int main()
     // cout << "totalProfitTotalJob : " << totalProfitTotalJob.first <<" " <<totalProfitTotalJob.second << endl;
 
   
-    vector<int> start = {1,3,0,5,8,5};
-    vector<int> end = {2,4,5,7,9,9};
+    // vector<int> start = {1,3,0,5,8,5};
+    // vector<int> end = {2,4,5,7,9,9};
 
 
-    vector <int> NMeetingInARoom = obj.NMeetingInARoom(start,end);
+    // vector <int> NMeetingInARoom = obj.nMeetingInARoom(start,end);
 
-    for (int val : NMeetingInARoom)
-    {
-        cout << "NMeetingInARoomList : " << val << endl;
-    }
+    // for (int val : NMeetingInARoom)
+    // {
+    //     cout << "NMeetingInARoomList : " << val << endl;
+    // }
+
+    vector<float> arrival = {9.0, 9.75, 9.916, 11.0, 15.0, 18.00};
+    vector<float> departure = {9.33, 12.00, 11.50, 11.833, 19.00, 20.00};
+
+
+    int minimumNumberOfPlatforms = obj.minimumNumberOfPlatforms(arrival,departure);
+    cout << "minimumNumberOfPlatforms : " << minimumNumberOfPlatforms << endl;
   
 
 }

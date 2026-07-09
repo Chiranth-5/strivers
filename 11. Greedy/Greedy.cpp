@@ -27,7 +27,7 @@ float Greedy::calculateAverageWaitTime(vector<int>& jobs)
 }
 
 
-pair < int, int > Greedy::JobScheduling(vector<Job> list, int n)
+pair < int, int > Greedy::jobScheduling(vector<Job> list, int n)
 {
     // returns the total profit and the total number of jobs sceduled
 
@@ -77,7 +77,7 @@ struct MeetingDetails
 
 };
 
-vector<int> Greedy::NMeetingInARoom ( vector<int> start, vector<int> end)
+vector<int> Greedy::nMeetingInARoom ( vector<int> start, vector<int> end)
 {
     int n = start.size();
     std::vector<MeetingDetails> meetings;
@@ -112,4 +112,41 @@ vector<int> Greedy::NMeetingInARoom ( vector<int> start, vector<int> end)
     }
 
     return result;
+}
+
+int Greedy::minimumNumberOfPlatforms ( vector<float> arrival, vector<float> departure)
+{
+    // 1. combine both arrival and departure into a pair marking it as either arrrival or departure.
+    vector< pair<int,char>> collection;
+
+    for ( int ar : arrival)
+    {
+        collection.push_back( {ar,'A'});
+    }
+
+    for ( int dp : departure)
+    {
+        collection.push_back( {dp,'D'});
+    }
+
+    // 2. sort thenm based on time
+    sort ( collection.begin(),collection.end() );
+
+    // 3. traverse to fund the paltform required
+    int count=0;
+    int maxCount=0;
+    for (int i=0; i<collection.size() ;i++)
+    {
+        if( collection[i].second == 'A')
+        {
+            count++;
+        }
+        else
+        {
+            count--;
+        }
+        maxCount = max( count, maxCount);
+    }
+
+    return maxCount;
 }

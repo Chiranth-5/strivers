@@ -15,19 +15,28 @@ struct Job
 class Greedy
 {
 
-    // 1.assign cookies -leetcode
-    // 2.lemonade bills - leetcode
+        // 1.assign cookies -leetcode
+        // 2.lemonade bills - leetcode
     public:
-    // 3.shortestest job first:
+        // 3.shortestest job first:
         float calculateAverageWaitTime(vector<int>& jobs) ;
 
-    // 4.jumpgame 1 -leetcode
-    // 5.jumpgame 2 -leetcode
+        // 4.jumpgame 1 -leetcode
+        // 5.jumpgame 2 -leetcode
     
-    // 6.job sequence
-        pair < int, int > JobScheduling(vector<Job> list, int n);
+        // 6.job sequence
+        pair < int, int > jobScheduling(vector<Job> list, int n);
 
-        vector<int> NMeetingInARoom ( vector<int> start, vector<int> end);
+        // 7. N meetings in a room
+        vector<int> nMeetingInARoom ( vector<int> start, vector<int> end);
+
+        // 8. Non-Overlapping
+        // 9. Insert Interval
+        // 10. Merge Interval
+        // 11. Minimum number of platforms for all sceduled trains.
+        int minimumNumberOfPlatforms ( vector<float> arrival, vector<float> departure);
+        
+
     
 
 };
